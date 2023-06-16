@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+  </head>
+  <body>
+    <div class="form">
+      <form method="POST">
+        {{ form.hidden_tag() }} {{ form.search.label }} {{ form.search() }} {{
+        form.submit() }}
+      </form>
+    </div>
+    <div class="fixed-box">
+        <div class="results-box">
+            {% for result in results %}
+              <a href="{{ result['Question link'] }}" target="_blank">{{ result['Question heading'] }}</a>
+              <p>Matching Score: {{ result['Score'] }}</p>
+            {% endfor %}
+        </div>
+    </div>
+      
+  </body>
+</html>

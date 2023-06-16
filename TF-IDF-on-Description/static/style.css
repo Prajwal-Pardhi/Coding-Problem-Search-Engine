@@ -1,0 +1,48 @@
+body {
+display: flex;
+flex-direction: column;
+align-items: center;
+height: 100vh;
+background-color: rgb(200, 203, 206);
+}
+
+.form {
+text-align: center;
+}
+.fixed-box{
+    margin-top: 10px;
+    width: 90vw;
+    height: 90vh;
+    background-color: rgb(169, 227, 245);
+}
+.results-box {
+    
+    margin-top: 20px;
+    text-align: center;
+    background-color: rgb(169, 227, 245);
+
+}  
+  
+/* Increase the size of the form search field */
+.form input[type="text"] {
+    
+    width: 300px; /* Adjust the desired width */
+    height: 40px; /* Adjust the desired height */
+    font-size: 16px; /* Adjust the desired font size */
+    padding-left: 4px;
+  }
+  
+  /* Increase the size of the form submit button */
+  .form input[type="submit"] {
+    width: 150px; /* Adjust the desired width */
+    height: 40px; /* Adjust the desired height */
+    font-size: 16px; /* Adjust the desired font size */
+    padding-left: 4px;
+    background-color: blue;
+  }
+  /* Increase the size of the text before the search box */
+.form label {
+    font-size: 25px; /* Adjust the desired font size */
+  }
+  
+  
