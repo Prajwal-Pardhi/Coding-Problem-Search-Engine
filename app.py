@@ -10,7 +10,7 @@ app.template_folder = 'templates'
 
 def load_vocab():
     vocab = {}
-    with open('vocab.txt', 'r') as f:
+    with open('vocab.txt','r', encoding="utf-8") as f:
         vocab_terms = f.readlines()
     with open('TF-IDF\\tf-idf-data\idf-values.txt', 'r') as f:
         idf_values = f.readlines()
@@ -22,7 +22,7 @@ def load_vocab():
 
 def load_documents():
     documents = []
-    with open('TF-IDF\\tf-idf-data\documents.txt', 'r') as f:
+    with open('TF-IDF\\tf-idf-data\documents.txt', 'r', encoding="utf-8") as f:
         documents = f.readlines()
     documents = [document.strip().split() for document in documents]
 
@@ -32,7 +32,7 @@ def load_documents():
 
 def load_inverted_index():
     inverted_index = {}
-    with open('TF-IDF\\tf-idf-data\inverted-index.txt', 'r') as f:
+    with open('TF-IDF\\tf-idf-data\inverted-index.txt', 'r', encoding="utf-8") as f:
         inverted_index_terms = f.readlines()
 
     for row_num in range(0,len(inverted_index_terms),2):
@@ -45,14 +45,14 @@ def load_inverted_index():
 
 def load_Qindex():
     q_links = []
-    with open('Leetcode-Que-Scrapper\Questions-Data\Que_links.txt', 'r') as f:
+    with open('Leetcode-Que-Scrapper\Questions-Data\Que_links.txt', 'r', encoding="utf-8") as f:
         q_links = f.readlines()
     #q_links = [each_link.strip().split() for each_link in q_links]
     return q_links
 
 def load_index():
     q_headings = []
-    with open('Leetcode-Que-Scrapper\Questions-Data\Que_heading.txt', 'r') as f:
+    with open('Leetcode-Que-Scrapper\Questions-Data\Que_heading.txt', 'r', encoding="utf-8") as f:
         q_headings = f.readlines()
     #q_headings = [each_head.strip().split()[1:] for each_head in q_headings]
 
