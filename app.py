@@ -8,11 +8,26 @@ from wtforms import SubmitField
 app = Flask(__name__ , static_url_path='/static')
 app.template_folder = 'templates'
 
+import chardet
+import re
+
+def find_encoding(fname):
+    try:
+        with open(fname, 'rb') as f:
+            result = chardet.detect(f.read())
+            charenc = result['encoding']
+            return charenc
+    except UnicodeDecodeError:
+        return 'utf-8'
+
 def load_vocab():
     vocab = {}
-    with open('vocab.txt','r', encoding="utf-8") as f:
+    my_encoding1 = find_encoding('vocab.txt')
+    with open('vocab.txt','r', encoding=my_encoding1 ) as f:
         vocab_terms = f.readlines()
-    with open('TF-IDF\\tf-idf-data\idf-values.txt', 'r') as f:
+
+    my_encoding2 = find_encoding('TF-IDF\\tf-idf-data\idf-values.txt')
+    with open('TF-IDF\\tf-idf-data\idf-values.txt', 'r',encoding=my_encoding2 ) as f:
         idf_values = f.readlines()
     
     for (term,idf_value) in zip(vocab_terms, idf_values):
@@ -22,7 +37,8 @@ def load_vocab():
 
 def load_documents():
     documents = []
-    with open('TF-IDF\\tf-idf-data\documents.txt', 'r', encoding="utf-8") as f:
+    my_encoding1 = find_encoding('TF-IDF\\tf-idf-data\documents.txt')
+    with open('TF-IDF\\tf-idf-data\documents.txt', 'r', encoding=my_encoding1 ) as f:
         documents = f.readlines()
     documents = [document.strip().split() for document in documents]
 
@@ -32,7 +48,8 @@ def load_documents():
 
 def load_inverted_index():
     inverted_index = {}
-    with open('TF-IDF\\tf-idf-data\inverted-index.txt', 'r', encoding="utf-8") as f:
+    my_encoding1 = find_encoding('TF-IDF\\tf-idf-data\inverted-index.txt')
+    with open('TF-IDF\\tf-idf-data\inverted-index.txt', 'r', encoding=my_encoding1) as f:
         inverted_index_terms = f.readlines()
 
     for row_num in range(0,len(inverted_index_terms),2):
