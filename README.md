@@ -23,7 +23,7 @@ The DSA Search Engine is a project that leverages web scraping using Selenium to
 flask --app app.py run
 '''
 
-##Usage
+## Usage
 1. Open your web browser and navigate to http://localhost:5000.
 2. Enter your search query in the provided input field.
 3. Click the "Search" button.
