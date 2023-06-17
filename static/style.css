@@ -46,4 +46,15 @@ text-align: center;
     font-size: 25px; /* Adjust the desired font size */
   }
   
+.logo{
+  text-decoration: underline;
+  text-shadow: #ffff00;
+  border: chartreuse;
+}
+.horizontal-line {
+  width: 50vw;
+  height: 1px;
+  background-color: #000; /* Customize line color */
+  margin: 0 auto; /* Center horizontally */
+}
   

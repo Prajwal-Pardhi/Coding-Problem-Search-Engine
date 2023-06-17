@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Search Page</title>
+    <title>DSA Serch Engine</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 
   </head>
   <body>
+    <div class="logo">
+      <h1>DSA Search Engine</h1>
+    </div>
     <div class="form">
       <form method="POST">
         {{ form.hidden_tag() }} {{ form.search.label }} {{ form.search() }} {{
@@ -17,6 +20,7 @@
             {% for result in results %}
               <a href="{{ result['Question link'] }}" target="_blank">{{ result['Question heading'] }}</a>
               <p>Matching Score: {{ result['Score'] }}</p>
+              <div class="horizontal-line"></div>
             {% endfor %}
         </div>
     </div>
