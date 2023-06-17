@@ -26,8 +26,8 @@ def load_vocab():
     with open('vocab.txt','r', encoding=my_encoding1 ) as f:
         vocab_terms = f.readlines()
 
-    my_encoding2 = find_encoding('TF-IDF\\tf-idf-data\idf-values.txt')
-    with open('TF-IDF\\tf-idf-data\idf-values.txt', 'r',encoding=my_encoding2 ) as f:
+    my_encoding2 = find_encoding('idf-values.txt')
+    with open('idf-values.txt', 'r',encoding=my_encoding2 ) as f:
         idf_values = f.readlines()
     
     for (term,idf_value) in zip(vocab_terms, idf_values):
@@ -37,8 +37,8 @@ def load_vocab():
 
 def load_documents():
     documents = []
-    my_encoding1 = find_encoding('TF-IDF\\tf-idf-data\documents.txt')
-    with open('TF-IDF\\tf-idf-data\documents.txt', 'r', encoding=my_encoding1 ) as f:
+    my_encoding1 = find_encoding('documents.txt')
+    with open('documents.txt', 'r', encoding=my_encoding1 ) as f:
         documents = f.readlines()
     documents = [document.strip().split() for document in documents]
 
@@ -48,8 +48,8 @@ def load_documents():
 
 def load_inverted_index():
     inverted_index = {}
-    my_encoding1 = find_encoding('TF-IDF\\tf-idf-data\inverted-index.txt')
-    with open('TF-IDF\\tf-idf-data\inverted-index.txt', 'r', encoding=my_encoding1) as f:
+    my_encoding1 = find_encoding('inverted-index.txt')
+    with open('inverted-index.txt', 'r', encoding=my_encoding1) as f:
         inverted_index_terms = f.readlines()
 
     for row_num in range(0,len(inverted_index_terms),2):
