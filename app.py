@@ -6,12 +6,13 @@ from wtforms import StringField
 from wtforms import SubmitField
 
 app = Flask(__name__ , static_url_path='/static')
+app.template_folder = 'templates'
 
 def load_vocab():
     vocab = {}
-    with open('G:\Algozenith\Web Dev\AZ-Hackathon\Project\TF-IDF\\tf-idf-data\\vocab.txt', 'r') as f:
+    with open('TF-IDF\\tf-idf-data\\vocab.txt', 'r') as f:
         vocab_terms = f.readlines()
-    with open('G:\Algozenith\Web Dev\AZ-Hackathon\Project\TF-IDF\\tf-idf-data\idf-values.txt', 'r') as f:
+    with open('TF-IDF\\tf-idf-data\idf-values.txt', 'r') as f:
         idf_values = f.readlines()
     
     for (term,idf_value) in zip(vocab_terms, idf_values):
@@ -21,7 +22,7 @@ def load_vocab():
 
 def load_documents():
     documents = []
-    with open('G:\Algozenith\Web Dev\AZ-Hackathon\Project\TF-IDF\\tf-idf-data\documents.txt', 'r') as f:
+    with open('TF-IDF\\tf-idf-data\documents.txt', 'r') as f:
         documents = f.readlines()
     documents = [document.strip().split() for document in documents]
 
@@ -31,7 +32,7 @@ def load_documents():
 
 def load_inverted_index():
     inverted_index = {}
-    with open('G:\Algozenith\Web Dev\AZ-Hackathon\Project\TF-IDF\\tf-idf-data\inverted-index.txt', 'r') as f:
+    with open('TF-IDF\\tf-idf-data\inverted-index.txt', 'r') as f:
         inverted_index_terms = f.readlines()
 
     for row_num in range(0,len(inverted_index_terms),2):
@@ -44,14 +45,14 @@ def load_inverted_index():
 
 def load_Qindex():
     q_links = []
-    with open('G:\Algozenith\Web Dev\AZ-Hackathon\Project\Leetcode-Que-Scrapper\Qdata\Qindex.txt', 'r') as f:
+    with open('Leetcode-Que-Scrapper\Questions-Data\Que_links.txt', 'r') as f:
         q_links = f.readlines()
     #q_links = [each_link.strip().split() for each_link in q_links]
     return q_links
 
 def load_index():
     q_headings = []
-    with open('G:\Algozenith\Web Dev\AZ-Hackathon\Project\Leetcode-Que-Scrapper\Qdata\index.txt', 'r') as f:
+    with open('Leetcode-Que-Scrapper\Questions-Data\Que_heading.txt', 'r') as f:
         q_headings = f.readlines()
     #q_headings = [each_head.strip().split()[1:] for each_head in q_headings]
 

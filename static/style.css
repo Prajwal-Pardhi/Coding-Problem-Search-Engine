@@ -37,6 +37,7 @@ text-align: center;
     width: 150px; /* Adjust the desired width */
     height: 40px; /* Adjust the desired height */
     font-size: 16px; /* Adjust the desired font size */
+    font-weight: bold;
     padding-left: 4px;
     background-color: blue;
   }
