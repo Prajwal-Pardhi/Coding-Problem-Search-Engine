@@ -25,6 +25,9 @@ The DSA Search Engine is a project that leverages web scraping using Selenium to
 ## Contact
 For any inquiries or feedback regarding the DSA Search Engine project, please contact:
 
- Prajwal Pardhi
- prajwalpardhi2003@gmail.com
- Your Website or GitHub Profile
+
+Prajwal Pardhi
+ 
+prajwalpardhi2003@gmail.com
+ 
+https://github.com/Prajwal-Pardhi
