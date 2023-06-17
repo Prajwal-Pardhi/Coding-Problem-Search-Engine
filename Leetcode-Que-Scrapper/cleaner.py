@@ -1,7 +1,7 @@
 import re  # Required for pattern matching
 arr = []  # Array to store the lines of the file
 # Open the file
-with open("G:\Algozenith\Web Dev\AZ-Hackathon\Project\Leetcode-Que-Scrapper\lc.txt", "r") as file:
+with open("Leetcode-Que-Scrapper\lc_all_links.txt", "r") as file:
     # Read each line one by one
     for line in file:
         # Process the line
@@ -22,7 +22,7 @@ arr = remove_elements_with_pattern(arr, "/solution")
 print("No. of links remained:",len(arr))
 arr = list(set(arr))
 
-with open('G:\Algozenith\Web Dev\AZ-Hackathon\Project\Leetcode-Que-Scrapper\lc_problems.txt', 'a') as f:
+with open('Leetcode-Que-Scrapper\lc_problem_links.txt', 'a') as f:
     # Iterate over each link in your final list
     for j in arr:
         # Write each link to the file, followed by a newline

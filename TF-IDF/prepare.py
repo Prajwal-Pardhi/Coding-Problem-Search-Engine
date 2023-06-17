@@ -12,7 +12,7 @@ def find_encoding(fname):
     except UnicodeDecodeError:
         return 'utf-8'
 
-filename = 'G:\Algozenith\Web Dev\AZ-Hackathon\Project\Leetcode-Que-Scrapper\Qdata\index.txt'
+filename = 'Leetcode-Que-Scrapper\Questions-Data\Que_heading.txt'
 my_encoding = find_encoding(filename)
 
 with open(filename, 'r', encoding=my_encoding) as f:
@@ -39,7 +39,7 @@ for index, line in enumerate(lines):
     #tokens = preprocess(line)
 
     
-    file_path = f'G:\Algozenith\Web Dev\AZ-Hackathon\Project\Leetcode-Que-Scrapper\Qdata\data\{index+1}\{index+1}.txt'
+    file_path = f'Leetcode-Que-Scrapper\Questions-Data\Que_description\{index+1}\{index+1}.txt'
     
     my_encoding2 = find_encoding(file_path)    
     with open(file_path,'r', encoding= my_encoding2 ) as file:

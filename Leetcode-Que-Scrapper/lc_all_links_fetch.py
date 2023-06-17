@@ -54,7 +54,7 @@ for i in range(1, 56):
 my_ans = list(set(my_ans))
 
 # Open a file to write the results to
-with open('G:\Algozenith\Web Dev\AZ-Hackathon\Project\Leetcode-Que-Scrapper\lc.txt', 'a') as f:
+with open('Leetcode-Que-Scrapper\lc_all_links.txt', 'a') as f:
     # Iterate over each link in your final list
     for j in my_ans:
         # Write each link to the file, followed by a newline

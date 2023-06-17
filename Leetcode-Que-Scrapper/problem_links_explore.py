@@ -18,13 +18,13 @@ driver = webdriver.Chrome(service=s)
 heading_class = ".mr-2.text-label-1"
 body_class = ".px-5.pt-4"
 index = 1
-QDATA_FOLDER = "G:\Algozenith\Web Dev\AZ-Hackathon\Project\Leetcode-Que-Scrapper\Qdata\data"
+QDATA_FOLDER = "Leetcode-Que-Scrapper\Questions-Data\Que_description"
 
 
 def get_array_of_links():
     arr = []  # Array to store the lines of the file
 # Open the file
-    with open("G:\Algozenith\Web Dev\AZ-Hackathon\Project\Leetcode-Que-Scrapper\lc_problems.txt", "r") as file:
+    with open("Leetcode-Que-Scrapper\lc_problem_links.txt", "r") as file:
         # Read each line one by one
         for line in file:
             arr.append(line)
@@ -32,13 +32,13 @@ def get_array_of_links():
 
 
 def add_text_to_index_file(text):
-    index_file_path = os.path.join(QDATA_FOLDER, "G:\Algozenith\Web Dev\AZ-Hackathon\Project\Leetcode-Que-Scrapper\Qdata\index.txt")
+    index_file_path = os.path.join(QDATA_FOLDER, "Leetcode-Que-Scrapper\Questions-Data\Que_heading.txt")
     with open(index_file_path, "a") as index_file:
         index_file.write(text + "\n")
 
 
 def add_link_to_Qindex_file(text):
-    index_file_path = os.path.join(QDATA_FOLDER, "G:\Algozenith\Web Dev\AZ-Hackathon\Project\Leetcode-Que-Scrapper\Qdata\Qindex.txt")
+    index_file_path = os.path.join(QDATA_FOLDER, "Leetcode-Que-Scrapper\Questions-Data\Que_links.txt")
     with open(index_file_path, "a", encoding="utf-8", errors="ignore") as Qindex_file:
         Qindex_file.write(text)
 
