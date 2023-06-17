@@ -10,7 +10,7 @@ app.template_folder = 'templates'
 
 def load_vocab():
     vocab = {}
-    with open('TF-IDF\\tf-idf-data\\vocab.txt', 'r') as f:
+    with open('vocab.txt', 'r') as f:
         vocab_terms = f.readlines()
     with open('TF-IDF\\tf-idf-data\idf-values.txt', 'r') as f:
         idf_values = f.readlines()
