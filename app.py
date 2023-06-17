@@ -62,14 +62,14 @@ def load_inverted_index():
 
 def load_Qindex():
     q_links = []
-    with open('Leetcode-Que-Scrapper\Questions-Data\Que_links.txt', 'r', encoding="utf-8") as f:
+    with open( 'Que_links.txt', 'r', encoding="utf-8") as f:
         q_links = f.readlines()
     #q_links = [each_link.strip().split() for each_link in q_links]
     return q_links
 
 def load_index():
     q_headings = []
-    with open('Leetcode-Que-Scrapper\Questions-Data\Que_heading.txt', 'r', encoding="utf-8") as f:
+    with open( 'Que_heading.txt', 'r', encoding="utf-8") as f:
         q_headings = f.readlines()
     #q_headings = [each_head.strip().split()[1:] for each_head in q_headings]
 
