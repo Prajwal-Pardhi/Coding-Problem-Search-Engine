@@ -1,29 +1,76 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>DSA Serch Engine</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   </head>
   <body>
-    <div class="logo">
-      <h1>DSA Search Engine</h1>
-    </div>
-    <div class="form">
-      <form method="POST">
-        {{ form.hidden_tag() }} {{ form.search.label }} {{ form.search() }} {{
-        form.submit() }}
-      </form>
-    </div>
-    <div class="fixed-box">
-        <div class="results-box">
-            {% for result in results %}
-              <a href="{{ result['Question link'] }}" target="_blank">{{ result['Question heading'] }}</a>
-              <p>Matching Score: {{ result['Score'] }}</p>
-              <div class="horizontal-line"></div>
-            {% endfor %}
+
+    <header>
+      <nav>
+        <div class="nav-logo">DSA Search Engine</div>
+        <div class="dropdown">
+          <button class="dropbtn">
+            <div>Menu</div>
+            <i class="material-icons">arrow_drop_down</i>
+          </button>
+          <div class="dropdown-content">
+            <a href="#">Profile</a>
+            <a href="#">Contact</a>
+            <a href="#">About Us</a>
+          </div>
         </div>
+      </nav>
+    </header>
+
+    <div class="content-body">
+      <div class="content-head-search">
+        <div class="logo">
+          <h1>DSA Search Engine</h1>
+        </div>
+        <div class="form">
+          <form method="POST">
+            {{ form.hidden_tag() }} {{ form.search.label }} {{ form.search() }} {{
+            form.submit() }}
+          </form>
+        </div>
+      </div>
+  
+      {% if results|length != 0 %}
+      <div class="grid-container">
+        {% for result in results %}
+        <div class="grid-item">
+          <div class="que-heading"><h2>{{ result['Question heading'] }}</h2></div>
+          <!-- <div class="que-description"><p class="que-description">{{result['Question description']}}</p></div> -->
+          <p class="que-description">{{result['Question description']}}</p>
+          <!-- <button><a href="{{ result['Question link'] }}">Solve Question</a></button> -->
+          <a href="{{ result['Question link'] }}" class="solve-button" target="_blank"
+            >Solve Question</a
+          >
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
-      
+    
+
+    <footer>
+      <div class="footer-content">
+        <p>Copyright © 2022 Your Company</p>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>

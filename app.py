@@ -8,6 +8,9 @@ from wtforms import SubmitField
 app = Flask(__name__ , static_url_path='/static')
 app.template_folder = 'templates'
 
+# if __name__ == "__main__":
+#     app.run(debug=True)
+
 import chardet
 import re
 
@@ -75,6 +78,17 @@ def load_index():
 
     return q_headings
 
+def load_question_description(index):
+        index += 1
+        q_description = []
+        with open(f'Leetcode-Que-Scrapper/Questions-Data/Que_description/{index}/{index}.txt', 'r', encoding="utf-8") as f:
+            q_description = f.readlines()
+
+        q_description = ' '.join(q_description).replace('\n', '')
+
+        # print(q_description)
+        return q_description
+
 
 vocab_idf_values = load_vocab() #dict (word: no. of documents in which 'word' is present)
 documents = load_documents() #list [['a','b',...for each document1],['a2','b2',...for docu2],[...],...]
@@ -126,8 +140,8 @@ def calculate_sorted_order_of_documents(query_terms):
 
     potential_documents = dict(sorted(potential_documents.items(), key=lambda item: item[1], reverse=True))
 
-
     for document_index in potential_documents:
+        # print("hello")
         #print('Document: ', documents[int(document_index)], ' Score: ', potential_documents[document_index])
         #print('Document Heading: ', que_heading[int(document_index)],
         # 'Document link: ',que_links[int(document_index)], 
@@ -135,8 +149,18 @@ def calculate_sorted_order_of_documents(query_terms):
         heading = que_heading[int(document_index)].split()
         new_heading = ' '.join(heading[1:])
 
+        # getting the question description
+        # print(document_index)
+        # print(new_heading)
+        # print("\n")
+        queDiscription  = load_question_description(int(document_index))
+        queDiscriptionStr = queDiscription.split("Example 1")[0]
+        # print(queDiscriptionStr)
+        # print("\n\n\n")
+        
         result.append( {"Question heading": new_heading ,
-                        "Question link": que_links[int(document_index)], 
+                        "Question link": que_links[int(document_index)],
+                        "Question description": queDiscriptionStr, 
                         "Score":potential_documents[document_index] } )
         
     return result[:20:]
@@ -151,7 +175,7 @@ def calculate_sorted_order_of_documents(query_terms):
 app.config['SECRET_KEY'] = 'prajwal_key'
 
 class SearchForm(FlaskForm):
-    search = StringField('Enter your search term')
+    search = StringField('Enter Question Keywords: ')
     submit = SubmitField('Search')
 
 @app.route("/<query>")
